@@ -1,17 +1,20 @@
 # This file contains all available configuration options
 # with their default values.
 
+# the configuraton version - should be 2
 version: "2"
 
 # options for analysis running
-run:
+# run:
 
 # output configuration options
 output:
   formats:
-    print-issued-lines: true
-    colors: true
+    text:
+      print-issued-lines: true
+      colors: true
 
+# the set of linters to use
 linters:
   settings:
     dupl:
@@ -60,11 +63,13 @@ linters:
           - gocritic
           - gocognit
 
+# the specific formatters to check
 formatters:
   enable:
     - gofmt
     - goimports
 
+# the issues configuration
 issues:
   # Maximum issues count per one linter. Set to 0 to disable. Default is 50.
   max-issues-per-linter: 0
