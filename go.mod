@@ -7,7 +7,7 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.3
 	github.com/jaypipes/ghw v0.19.1
 	github.com/onsi/ginkgo/v2 v2.23.0
-	github.com/opiproject/opi-api/v1/gen/go/inventory v0.0.0-20251020191119-2bef07849a79
+	github.com/opiproject/opi-api/v1/gen/go/inventory v0.0.0-20251024044751-436ae8335b8a
 	github.com/vektra/mockery/v2 v2.53.2
 	golang.org/x/tools v0.37.0
 	google.golang.org/grpc v1.76.0
@@ -206,8 +206,8 @@ require (
 	golang.org/x/text v0.30.0 // indirect
 	golang.org/x/tools/go/expect v0.1.1-deprecated // indirect
 	golang.org/x/tools/go/packages/packagestest v0.1.1-deprecated // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20251020155222-88f65dc88635 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251020155222-88f65dc88635 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20251022142026-3a174f9686a8 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20251022142026-3a174f9686a8 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

@@ -1,39 +1,41 @@
 # This file contains all available configuration options
 # with their default values.
 
+version: "2"
+
 # options for analysis running
 run:
 
 # output configuration options
 output:
-  # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
-  format: colored-line-number
-
-linters-settings:
-  funlen:
-    lines: 120
-    statements: 120
-  dupl:
-    threshold: 200
-  gocognit:
-    min-complexity: 32
+  formats:
+    print-issued-lines: true
+    colors: true
 
 linters:
+  settings:
+    dupl:
+      threshold: 200
+    funlen:
+      lines: 120
+      statements: 120
+    gocognit:
+      min-complexity: 32
   enable:
     - bodyclose
     - dogsled
     - errcheck
-    - exportloopref
+#    - exportloopref  Depricated linter
     - funlen
     - gochecknoinits
     - gocognit
     - goconst
     - gocritic
     - gocyclo
-    - gofmt
-    - goimports
+#    - gofmt  moved to formatters
+#    - goimports  moved to formatters
     - gosec
-    - gosimple
+#    - gosimple  merged inside staticcheck
     - govet
     - ineffassign
     - misspell
@@ -41,25 +43,29 @@ linters:
     - prealloc
     - revive
     - staticcheck
-    - stylecheck
+#    - stylecheck  merged inside staticcheck
     - unconvert
     - unparam
     - whitespace
+  exclusions:
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - path: (.+)_test.go
+        linters:
+          - funlen
+          - gocritic
+          - gocognit
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
 
 issues:
-  # Independently from option `exclude` we use default exclude patterns,
-  # it can be disabled by this option. To list all
-  # excluded by default patterns execute `golangci-lint run --help`.
-  # Default value for this option is true.
-  exclude-use-default: false
-
-  exclude-rules:
-    - path: (.+)_test.go
-      linters:
-        - funlen
-        - gocritic
-        - gocognit
-
   # Maximum issues count per one linter. Set to 0 to disable. Default is 50.
   max-issues-per-linter: 0
 
