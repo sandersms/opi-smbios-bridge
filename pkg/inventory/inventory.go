@@ -74,7 +74,7 @@ func (s *Server) GetInventory(_ context.Context, in *pc.GetInventoryRequest) (*p
 		System:    &pc.SystemInfo{Family: product.Family, Name: product.Name, Vendor: product.Vendor, SerialNumber: product.SerialNumber, Uuid: product.UUID, Sku: product.SKU, Version: product.Version},
 		Baseboard: &pc.BaseboardInfo{AssetTag: baseboard.AssetTag, SerialNumber: baseboard.SerialNumber, Vendor: baseboard.Vendor, Version: baseboard.Version, Product: baseboard.Product},
 		Chassis:   &pc.ChassisInfo{AssetTag: chassis.AssetTag, SerialNumber: chassis.SerialNumber, Type: chassis.Type, TypeDescription: chassis.TypeDescription, Vendor: chassis.Vendor, Version: chassis.Version},
-		Processor: &pc.CPUInfo{TotalCores: int32(cpu.TotalCores), TotalThreads: int32(cpu.TotalThreads)},
+		Processor: &pc.CPUInfo{TotalCores: cpu.TotalCores, TotalThreads: cpu.TotalHardwareThreads},
 		Memory:    &pc.MemoryInfo{TotalPhysicalBytes: memory.TotalPhysicalBytes, TotalUsableBytes: memory.TotalUsableBytes},
 		Pci:       Blobarray,
 	}, nil

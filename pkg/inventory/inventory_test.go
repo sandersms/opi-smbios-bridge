@@ -61,7 +61,7 @@ func Test_GetInventory(t *testing.T) {
 
 	// start GRPC mockup server
 	ctx := context.Background()
-	conn, err := grpc.DialContext(ctx, "", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(dialer()))
+	conn, err := grpc.NewClient("", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithContextDialer(dialer()))
 	if err != nil {
 		log.Fatal(err)
 	}

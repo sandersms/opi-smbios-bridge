@@ -38,7 +38,8 @@ errors:
 	errcheck -ignoretests -blank ./...
 
 lint:
-	golint ./...
+# install golancci-lint to run this in linux with "brew install golangci-lint
+	golangci-lint run
 
 imports:
 	goimports -l -w .
